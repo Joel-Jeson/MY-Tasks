@@ -60,7 +60,8 @@ button{
 
 
 li {
-  max-width: 90%;          /* Prevent li from stretching too far */
+  max-width: 90%;    
+  width: 100%;      /* Prevent li from stretching too far */
   word-wrap: break-word;   /* Wrap long words */
   overflow-wrap: break-word;
   white-space: normal;     /* Allow wrapping */
@@ -72,6 +73,7 @@ li {
 li span {
   display: inline-block;
   max-width: 100%;
+  width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
@@ -90,10 +92,11 @@ li span {
 /* Each task item */
 li {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping inside li */
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  flex-wrap: nowrap; /* Prevent buttons from wrapping unnecessarily */
+  gap: 10px;
+  padding: 10px;
   margin: 10px 0;
   background: #dbe8ec;
   border-radius: 8px;
@@ -102,14 +105,17 @@ li {
   max-width: 100%;
 }
 
+
 /* The task title */
 li span {
-  flex: 1 1 auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  font-size: 16px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 /* Buttons */
 li button {
@@ -119,13 +125,27 @@ li button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+li input[type="text"] {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
 /* Add some responsive design */
 @media (max-width: 600px) {
   li {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction:row;
+    width: 100%;
   }
 
   li button {
