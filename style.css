@@ -1,0 +1,9 @@
+.completed{
+    text-decoration: line-through;
+    color: crimson;
+    font-family: cursive;
+}
+
+body{
+    background-color:aliceblue;
+}
