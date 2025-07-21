@@ -2,8 +2,134 @@
     text-decoration: line-through;
     color: crimson;
     font-family: cursive;
+    cursor: pointer;
+ 
 }
 
 body{
     background-color:aliceblue;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+       max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+h1{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-decoration: underline;
+    font-size: xx-large;
+}
+
+ul li{
+    list-style:decimal;
+    font-size: x-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+input{
+    padding: 6px 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+button{
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.delete-btn{
+    margin: 8px;
+    color: #f4f4f4;
+    background-color: crimson;
+}
+
+.edit-btn{
+      margin: 8px;
+    color: #f4f4f4;
+    background-color: rgb(40, 20, 220);
+}
+.upload-btn{
+    margin: 8px;
+    color: #f4f4f4;
+    background-color: rgb(20, 220, 103);
+}
+
+
+li {
+  max-width: 90%;          /* Prevent li from stretching too far */
+  word-wrap: break-word;   /* Wrap long words */
+  overflow-wrap: break-word;
+  white-space: normal;     /* Allow wrapping */
+  margin: 8px 0;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+li span {
+  display: inline-block;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+/* Overall task container */
+#list {
+  max-width: 90%;
+  margin: auto;
+  padding: 0;
+    list-style-position: inside;
+  list-style:decimal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Each task item */
+li {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping inside li */
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin: 10px 0;
+  background: #dbe8ec;
+  border-radius: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* The task title */
+li span {
+  flex: 1 1 auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  font-size: 16px;
+}
+
+/* Buttons */
+li button {
+  margin-left: 8px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Add some responsive design */
+@media (max-width: 600px) {
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li button {
+    margin-top: 6px;
+    margin-left: 0;
+  }
 }

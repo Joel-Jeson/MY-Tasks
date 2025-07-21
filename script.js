@@ -4,24 +4,28 @@ const input = document.getElementById("inputBox");
 function handleInput(e) {
   e.preventDefault();
 }
+
+function saveTo() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+function loadFromStorage() {
+  const localData = localStorage.getItem("tasks");
+  if (localData) {
+    tasks = JSON.parse(localData);
+  }
+  displayData();
+}
 function displayData() {
   const list = document.getElementById("list");
   list.innerHTML = "";
   tasks.forEach((task) => {
     const li = document.createElement("li");
-
-    //toggle task
-    if (task.completed) {
-      li.className = "completed";
-    } else {
-      li.className = "";
-    }
-
+    let spanClass = task.completed ? "completed" : "";
     if (task.editTask) {
-      li.innerHTML = `<input value="${task.title}" id="${task.id}"/><button onclick="deleteTask(${task.id})">Delete</button><button onclick="updateTask(${task.id})">Upload</button>`;
+      li.innerHTML = `<input value="${task.title}" id="${task.id}"/><button onclick="deleteTask(${task.id})" class="delete-btn">Delete</button><button onclick="updateTask(${task.id})" class="upload-btn">Upload</button>`;
     } else {
       li.innerHTML = `
-    <span onclick="toggleTask(${task.id})">${task.title}</span><button onclick="deleteTask(${task.id})">Delete</button><button onclick="editTask(${task.id})">Edit</button>
+    <span class="${spanClass}" onclick="toggleTask(${task.id})">${task.title}</span><button onclick="deleteTask(${task.id})" class="delete-btn">Delete</button><button onclick="editTask(${task.id})" class="edit-btn">Edit</button>
     `;
     }
     list.appendChild(li);
@@ -42,6 +46,7 @@ function addTask() {
     tasks = [task, ...tasks];
     input.value = "";
   }
+  saveTo();
   displayData();
 }
 
@@ -49,6 +54,7 @@ function deleteTask(taskId) {
   tasks = tasks.filter((task) => {
     return task.id !== taskId;
   });
+  saveTo();
   displayData();
 }
 
@@ -96,6 +102,15 @@ function updateTask(taskId) {
       return task;
     }
   });
+  saveTo();
   displayData();
 }
+
+function clearTask() {
+  localStorage.clear;
+  tasks = [];
+  displayData();
+  saveTo();
+}
+loadFromStorage();
 displayData();
