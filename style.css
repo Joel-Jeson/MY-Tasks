@@ -8,15 +8,23 @@
 
 body{
     background-color:aliceblue;
+        margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 .container{
     display: flex;
     flex-direction: column;
+     justify-content: center;
     align-items: center;
     border: 3px solid #ccc;
     border-radius: 20px;
        max-width: 500px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
 }
 h1{
@@ -80,8 +88,9 @@ li span {
 }
 /* Overall task container */
 #list {
-  max-width: 90%;
-  margin: auto;
+  max-width: 100%;
+  margin:0 auto;
+   box-sizing: border-box;
   padding: 0;
     list-style-position: inside;
   list-style:decimal;
@@ -94,7 +103,6 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap; /* Prevent buttons from wrapping unnecessarily */
   gap: 10px;
   padding: 10px;
   margin: 10px 0;
@@ -103,6 +111,9 @@ li {
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
+   width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 
@@ -143,22 +154,41 @@ li input[type="text"] {
 
 /* Add some responsive design */
 @media (max-width: 600px) {
+
+    ul li{
+        margin-right: 10px;
+    }
   li {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     width: 100%;
+    padding: 12px 8px;
+    gap: 10px;
   }
 
   li span {
     white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
+    overflow-wrap: break-word;
     word-break: break-word;
     max-width: 100%;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
   }
 
   li button {
-    margin-top: 6px;
-    margin-left: 0;
+    margin: 6px 0 0 0;
+    width: 100%;
+    font-size: 12px;
+    padding: 6px;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  li input[type="text"] {
+    width: 100%;
+    font-size: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
   }
 }
