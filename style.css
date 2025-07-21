@@ -144,8 +144,17 @@ li input[type="text"] {
 /* Add some responsive design */
 @media (max-width: 600px) {
   li {
-    flex-direction:row;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
+  }
+
+  li span {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    word-break: break-word;
+    max-width: 100%;
   }
 
   li button {
